@@ -1,0 +1,29 @@
+{
+  "name": "preview-a",
+  "version": "0.0.0",
+  "authors": [
+    "vomvoru <qkrcjfgus3@gmail.com>"
+  ],
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "a",
+    "link"
+  ],
+  "license": "MIT",
+  "main": "preview-a.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.2"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^2.0.5"
+  }
+}
