@@ -37,7 +37,7 @@ Element providing solution to no problem in particular.
     <web-img 
     id="preview"
     url="{{href}}" 
-    server="http://localhost:64916/"
+    server="{{server}}"
     width={{width}}
     height={{height}}
     viewHeight=800
@@ -53,7 +53,8 @@ Element providing solution to no problem in particular.
     Polymer({
       publish:{
         width: 150,
-        height: 100
+        height: 100,
+        server: ''
       },
       ready: function(){
         var preview = this.$.preview;
