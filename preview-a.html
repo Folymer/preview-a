@@ -7,7 +7,13 @@
     Code distributed by Google as part of the polymer project is also
     subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" 
+href="../polymer/polymer.html">
+
+<link rel="import" 
+href="../web-img/web-img.html">
+<link rel="import" 
+href="../mouse-position/mouse-position.html">
 
 <!--
 Element providing solution to no problem in particular.
@@ -25,16 +31,42 @@ Element providing solution to no problem in particular.
 
   <template>
     <link rel="stylesheet" href="preview-a.css">
-    <!--<span>{{href}}</span>-->
+
     <content></content>
-    <!--<web-img id="preview" href="{{href}}"></web-img>-->
+
+    <web-img 
+    id="preview"
+    url="{{href}}" 
+    server="http://localhost:64916/"
+    width={{width}}
+    height={{height}}
+    viewHeight=800
+    viewWidth=1200
+    style="top:{{$.mouse.y}}px; left: {{$.mouse.x}}px;"
+    ></web-img>
+    <mouse-position id="mouse" hidden></mouse-position>
+    
   </template>
 
   <script>
 
     Polymer({
       publish:{
+        width: 150,
+        height: 100
+      },
+      ready: function(){
+        var preview = this.$.preview;
+        this.addEventListener('mouseenter', function(e){
+          preview.removeAttribute('hidden');
 
+          var left = e.screenX;
+          var top = e.screenY;
+        })
+
+        this.addEventListener('mouseleave', function(){
+          preview.setAttribute('hidden', true);
+        })
       }
     });
 
